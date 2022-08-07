@@ -1,7 +1,9 @@
 //maksym m1a2k3s4y5m6
 
 const mongoose = require('mongoose')
-const { DB_HOST } = require('./config')
+require('dotenv').config()
+
+const { DB_HOST } = process.env
 
 mongoose
   .connect(DB_HOST)
