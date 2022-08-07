@@ -1,9 +1,7 @@
 //maksym m1a2k3s4y5m6
 
 const mongoose = require('mongoose')
-
-const DB_HOST =
-  'mongodb+srv://maksym:m1a2k3s4y5m6@cluster0.enlhisl.mongodb.net/online_shop?retryWrites=true&w=majority'
+const { DB_HOST } = require('./config')
 
 mongoose
   .connect(DB_HOST)
