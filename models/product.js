@@ -1,4 +1,7 @@
 const { Schema, model } = require('mongoose')
+const Joi = require('joi')
+
+const codeRegex = /^[0-9]{9}$/
 
 const productSchema = Schema(
   {
@@ -26,12 +29,20 @@ const productSchema = Schema(
       type: String,
       required: true,
       unique: true, // use in conjunction with mongoDB indexes only
-      match: /^[0-9]{9}$/,
+      match: codeRegex,
     },
   },
   { versionKey: false, timestamps: true }
 )
 
+const joiSchema = Joi.object({
+  name: Joi.string().required(),
+  price: Joi.number().min(0.01).required(),
+  active: Joi.bool(),
+  status: Joi.string().required(),
+  code: Joi.string().pattern(codeRegex),
+})
+
 const Product = model('product', productSchema)
 
-module.exports = Product
+module.exports = { Product, joiSchema }
