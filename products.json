@@ -1,0 +1,23 @@
+[
+    {
+        "name": "cheese",
+        "price": 2.5
+    },
+    {
+        "name": "Crisps",
+        "price": 4
+    },
+    {
+        "name": "Pizza",
+        "price": 4
+    },
+    {
+        "name": "Chocolate",
+        "price": 1.5
+    },
+    {
+        "name": "Ronix Springbox 1",
+        "price": 25000,
+        "location": "Ronix Germany"
+    }
+]
