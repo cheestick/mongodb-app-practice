@@ -39,7 +39,7 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   price: Joi.number().min(0.01).required(),
   active: Joi.bool(),
-  status: Joi.string().required(),
+  status: Joi.string(),
   code: Joi.string().pattern(codeRegex),
 })
 
