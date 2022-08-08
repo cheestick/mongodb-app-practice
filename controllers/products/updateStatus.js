@@ -1,9 +1,10 @@
 const { Product } = require('../../models')
 const { NotFound } = require('http-errors')
 
-const removeById = async (req, res) => {
+const updateStatus = async (req, res) => {
   const { id } = req.params
-  const result = await Product.findByIdAndRemove(id)
+  const { status } = req.body
+  const result = await Product.findByIdAndUpdate(id, { status }, { new: true })
   if (!result) throw new NotFound(`Product with id=${id} not found`)
 
   res.json({
@@ -16,4 +17,4 @@ const removeById = async (req, res) => {
   })
 }
 
-module.exports = removeById
+module.exports = updateStatus
